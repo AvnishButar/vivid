@@ -4,7 +4,8 @@ import "./globals.css";
 import { TheaterIcon } from "lucide-react";
 import { ThemeProvider } from "@/provider/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
-
+import { dark } from "@clerk/themes"
+import { ClerkProvider } from "@clerk/nextjs"
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -27,23 +28,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en"
-    suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    <ClerkProvider
+      appearance ={{
+      baseTheme: dark,
+     }}>
+      <html  
+        lang="en"
         suppressHydrationWarning
       >
-        <ThemeProvider
+        <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
+        >
+          <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-          {children} 
+            {children} 
           <Toaster/>
-        </ThemeProvider>
+          </ThemeProvider>
  
-      </body>
-    </html>
+        </body>
+      </html>
+    </ClerkProvider> 
+    
   );
 }
