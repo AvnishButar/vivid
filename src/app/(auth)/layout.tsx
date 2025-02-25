@@ -6,10 +6,7 @@ type Props = {
 
 const Layout = ({ childern }: Props => {
     return (
-      < div className="w-full 
-        min-h-screen 
-        flex justify-center 
-        items-center" >
+      < div className = "w-full min-h-screen flex justify-center items-center" >
        {childern}
       </div>
     )
