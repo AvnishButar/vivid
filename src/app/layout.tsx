@@ -32,7 +32,7 @@ export default function RootLayout({
       appearance ={{
       baseTheme: dark,
      }}>
-      <html  
+      <html   
         lang="en"
         suppressHydrationWarning
       >
@@ -42,7 +42,7 @@ export default function RootLayout({
         >
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >

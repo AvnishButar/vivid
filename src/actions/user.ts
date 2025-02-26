@@ -11,7 +11,7 @@ export const onAuthenticateUser = async () => {
 
         const userExist = await client.user.findUnique({
             where:{
-                clerkId: user.id,
+                ClerkId: user.id,
             },
             include:{
                 PurchasedProjects:{
@@ -31,7 +31,7 @@ export const onAuthenticateUser = async () => {
 
         const newUser = await client.user.create({
             data:{
-                clerkId: user.id,
+                ClerkId : user.id,
                 email: user.emailAddresses[0].emailAddress,
                 name: user.firstName + ' ' + user.lastName,
                 profileImage: user.imageUrl,
